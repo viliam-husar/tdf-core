@@ -1,0 +1,9 @@
+47.5436, 16.3813
+49.703, 22.835
+
+max lat - TOP - 49.703
+min lat - BOTTOM - 47.5436
+max lon - LEFT - 22.835
+min lon - RIGHT - 16.3813
+
+osmium extract --bbox 16.3813,47.5436,22.835,49.703 /Users/vhusar/Downloads/europe-latest.osm.pbf -o tdf.osm.pbf

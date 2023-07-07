@@ -1,0 +1,433 @@
+{
+  "checkpoints": [
+    {
+      "name": "Start: Stakcin Tank",
+      "description": "Zaciatok/Start 26.8 23:59",
+      "latitude": 49.0001666,
+      "longitude": 22.2275205
+    },
+    {
+      "name": "Finish: Mark Twain",
+      "description": "Finish 29.8 12:00",
+      "latitude": 48.145853,
+      "longitude": 17.069665
+    },
+    {
+      "name": "Lubietova",
+      "description": "Debnarska 241/20, modrá drevenica/blue cottage<br><br>(mozno) trochu jedla a spanie/something to eat and sleep as well",
+      "latitude": 48.7452364,
+      "longitude": 19.3632016
+    },
+    {
+      "name": "Zelezno",
+      "description": "Aj tu su bane. V horach. Fotka s nazvom obce alebo turistickym smerovnikom // Another mining place. In mountains. Foto with either the town side or the tourist marking",
+      "latitude": 48.954181,
+      "longitude": 19.3937208
+    },
+    {
+      "name": "Nizne Repase",
+      "description": "kopec, ale zevraj je to tam fajn // hill, but supposedly a nice place. town sign",
+      "latitude": 49.0861278,
+      "longitude": 20.6965624
+    },
+    {
+      "name": "Hotel Sliezsky dom \n",
+      "description": "mozte si dat peciatku a ako premiu Gerlach // you can get a stamp if you want to and as a special bonus ascent the Gerlach mountain",
+      "latitude": 49.156078,
+      "longitude": 20.156587
+    },
+    {
+      "name": "Zádielska chata",
+      "description": "je to v kanone // canonical place",
+      "latitude": 48.641312,
+      "longitude": 20.8117335
+    },
+    {
+      "name": "Priehyba",
+      "description": "sedlo v Nizkych Tatrach, fotka s turistickym smerovnikom / Saddle in Nizke Tatry. Photo with the tourist marker",
+      "latitude": 48.906911,
+      "longitude": 19.9558998
+    },
+    {
+      "name": "Slanec",
+      "description": "Dobre. Byva tam Spanielova prateta / alright. Jano Spaniel's great-aunt lives there",
+      "latitude": 48.6362995,
+      "longitude": 21.4782341
+    },
+    {
+      "name": "Ptrukša",
+      "description": "Je tu fajn krcma. Prechod na UA zatvaraju o 2100? / There's a nice pub in there. The crossing to Ukraine closes at 9PM?",
+      "latitude": 48.4876298,
+      "longitude": 22.1387494000001
+    },
+    {
+      "name": "Stará Ľubovňa",
+      "description": "Na stanici maju tvrde za 40 centov. / You can get shots at the train station for 40 cents each",
+      "latitude": 49.3010575,
+      "longitude": 20.6898463
+    },
+    {
+      "name": "Vysielač Veľká Javorina",
+      "description": "Radio Tower Velka Javorina",
+      "latitude": 48.8576299,
+      "longitude": 17.6752505
+    },
+    {
+      "name": "Martinske hole",
+      "description": "S vyhladom / with the view",
+      "latitude": 49.0917176,
+      "longitude": 18.8148695
+    },
+    {
+      "name": "Smrekovica",
+      "description": "Konecne na hrebeni / ridge at last",
+      "latitude": 48.9918883,
+      "longitude": 19.198859
+    },
+    {
+      "name": "Kohútka",
+      "description": "Cucoriedkove buchty / blueberry buns",
+      "latitude": 49.2951606,
+      "longitude": 18.230488
+    },
+    {
+      "name": "Poľana",
+      "description": "Horsky hotel/chata  // Mountain hotel/cabin",
+      "latitude": 48.6253897,
+      "longitude": 19.4630883
+    },
+    {
+      "name": "Velodróm Prešov",
+      "description": "Spomienka / ah memories",
+      "latitude": 48.9861792,
+      "longitude": 21.2313734
+    },
+    {
+      "name": "Olejnikov, Majdan",
+      "description": "hiking sign",
+      "latitude": 49.1939122,
+      "longitude": 21.0899342
+    },
+    {
+      "name": "Panna Maria snezna ",
+      "description": "Sedlo, pozor na autobusy // mountain saddle, watch out for the buses",
+      "latitude": 48.7021398,
+      "longitude": 20.6496645
+    },
+    {
+      "name": "Vršatec, hotel",
+      "description": "Za hradom // hotel behind the castle",
+      "latitude": 49.0679785,
+      "longitude": 18.1473468
+    },
+    {
+      "name": "Kráľova hoľa",
+      "description": "stop s výhľadom // checkpoint with a view",
+      "latitude": 48.8826993,
+      "longitude": 20.1392057
+    },
+    {
+      "name": "Korova Kaplnka",
+      "description": "chapel made out of bark (literally)",
+      "latitude": 48.5482804,
+      "longitude": 19.5275015
+    },
+    {
+      "name": "Blýskavica",
+      "description": "zvonica na cintoríne // belltower at the cemetary",
+      "latitude": 48.46545,
+      "longitude": 19.29271
+    },
+    {
+      "name": "Čičermanské sedlo",
+      "description": "rozcestnik // Čičermany mountain saddle. hiking post at the crossroads",
+      "latitude": 48.9316233,
+      "longitude": 18.5274485
+    },
+    {
+      "name": "Močiar",
+      "description": "hlavne nezapadnut / be careful not to sink",
+      "latitude": 48.5406191,
+      "longitude": 18.9459976
+    },
+    {
+      "name": "Uhliská",
+      "description": "kopanice / isolated village",
+      "latitude": 48.4025828,
+      "longitude": 18.7527137
+    },
+    {
+      "name": "Krokava",
+      "description": "Horske stredisko // mountain tourist centre",
+      "latitude": 48.6297793,
+      "longitude": 20.0265616
+    },
+    {
+      "name": "Horáreň Sinec",
+      "description": "fotka s horarnou, netreba ist na vrchol // gamekeeper's lodge Sinec, take a picture with it - you don't have to climb to the top",
+      "latitude": 48.5600236,
+      "longitude": 19.8949887
+    },
+    {
+      "name": "Osušie",
+      "description": "kostol / church",
+      "latitude": 48.26797,
+      "longitude": 19.54826
+    },
+    {
+      "name": "Kríž v sedle Hluchánka",
+      "description": "Cross at the Hluchanka saddle",
+      "latitude": 49.4113449,
+      "longitude": 18.4774835
+    },
+    {
+      "name": "Turul Monument",
+      "description": "Big Bird",
+      "latitude": 47.5881279,
+      "longitude": 18.4077524
+    },
+    {
+      "name": "Rozhľadňa Rozbehy",
+      "description": "Foto z vrcholu rozhladne/Top of the outlook tower",
+      "latitude": 48.5722804,
+      "longitude": 17.3908826
+    },
+    {
+      "name": "Ťatliakova chata",
+      "description": "Lano netreba / you don't need a rope",
+      "latitude": 49.2137073,
+      "longitude": 19.7474457
+    },
+    {
+      "name": "Kompa Vlčany-Selice",
+      "description": "Otazne otvaracie hodiny/Questionable opening hours",
+      "latitude": 48.0420788,
+      "longitude": 17.9644519
+    },
+    {
+      "name": "Zámok Pohansko",
+      "description": "Biely dom strednej europy/White house of the Oestern Europa",
+      "latitude": 48.7278352,
+      "longitude": 16.8950456
+    },
+    {
+      "name": "Nagyirtáspuszta vlakova stanica",
+      "description": "Fotka so stanicou/photo with the station",
+      "latitude": 47.9012788,
+      "longitude": 18.8766733
+    },
+    {
+      "name": "Cered",
+      "description": "tabula s nazvom obce/town sign",
+      "latitude": 48.1461683,
+      "longitude": 19.9640407
+    },
+    {
+      "name": "Inovecká chata",
+      "description": "moznost vyjst az na Inovec na rozhladnu/possibility to go on the top of Inovec to the viewtower",
+      "latitude": 48.7851922,
+      "longitude": 18.0475915
+    },
+    {
+      "name": "Svoradova jaskyna",
+      "description": "Fotka s dierou/pic with hole",
+      "latitude": 48.3468816,
+      "longitude": 18.0940979
+    },
+    {
+      "name": "Kastiel liecebne Predna Hora",
+      "description": "moznost dlhodobeho ubytovania. Slava vyliecenym!",
+      "latitude": 48.7717424,
+      "longitude": 20.1110507
+    },
+    {
+      "name": "Obec Drienovo - obecný úrad",
+      "description": "Fotka s obecnym uradom/with the municipal office",
+      "latitude": 48.230415,
+      "longitude": 19.061858
+    },
+    {
+      "name": "Vodárenská nádrž Turček",
+      "description": "Kupko/swimming one",
+      "latitude": 48.7635298,
+      "longitude": 18.9365747
+    },
+    {
+      "name": "Skanzen Vychylovka",
+      "description": "foto vlacik/photo with the train",
+      "latitude": 49.3819857,
+      "longitude": 19.0955231
+    },
+    {
+      "name": "Rio de Klin - Socha Ježiša Krista",
+      "description": "Samba de Klin<br>fotka so spasitelom/photo with IHS",
+      "latitude": 49.4534376,
+      "longitude": 19.4834898
+    },
+    {
+      "name": "Útulňa pod Ruskym sedlom",
+      "description": "Power nap",
+      "latitude": 49.1439869,
+      "longitude": 22.3328876
+    },
+    {
+      "name": "Dukla",
+      "description": "Fotka s pamatnikom/photo with the monument",
+      "latitude": 49.4146664,
+      "longitude": 21.6999453
+    },
+    {
+      "name": "Herliansky gejzír",
+      "description": "cas erupcie/time of the eruption<br>https://www.herlany.sk/narodna-prirodna-pamiatka-herliansky-gejzir",
+      "latitude": 48.8010306,
+      "longitude": 21.4775368
+    },
+    {
+      "name": "Morské oko Vihorlat",
+      "description": "kupanie/swimming time",
+      "latitude": 48.9150648,
+      "longitude": 22.1978245
+    },
+    {
+      "name": "Beňatinské jazero",
+      "latitude": 48.8132448,
+      "longitude": 22.3424482
+    },
+    {
+      "name": "Domček Deduška Večerníčka",
+      "description": "Nová Sedlica, zaspievať znelku<br>https://www.youtube.com/watch?v=tw1qcoUEQoY",
+      "latitude": 49.0425555,
+      "longitude": 22.5130872
+    },
+    {
+      "name": "Soľník",
+      "description": "foto s nazvom obce/town sign",
+      "latitude": 49.2152394,
+      "longitude": 21.7449282
+    },
+    {
+      "name": "Zakopané",
+      "description": "fotka s tabulou/town sign",
+      "latitude": 49.299181,
+      "longitude": 19.9495621
+    },
+    {
+      "name": "Chata PTTK na Polane Chochołowskej",
+      "description": "vylet/trip",
+      "latitude": 49.2360599,
+      "longitude": 19.7874255
+    },
+    {
+      "name": "Chata na Kubínskej holi",
+      "latitude": 49.2675744,
+      "longitude": 19.2668535
+    },
+    {
+      "name": "Mexikópuszta",
+      "description": "sombrero",
+      "latitude": 47.6921219,
+      "longitude": 16.840031
+    },
+    {
+      "name": "Lázbérci víztározó gátőrháza",
+      "description": "Fotka na mole/photo on mole",
+      "latitude": 48.205935,
+      "longitude": 20.4772384
+    },
+    {
+      "name": "Závadka",
+      "description": "fotka s tabulou/town sign",
+      "latitude": 48.8664992,
+      "longitude": 20.6188225
+    },
+    {
+      "name": "Osturňa",
+      "description": "fotka s tabulou/town sign",
+      "latitude": 49.3363024,
+      "longitude": 20.2416561
+    },
+    {
+      "name": "Háromhuta",
+      "description": "fotka s tabulou/town sign",
+      "latitude": 48.3780662,
+      "longitude": 21.4283347
+    },
+    {
+      "name": "Ondavka",
+      "description": "fotka s tabulou/town sign",
+      "latitude": 49.4362999,
+      "longitude": 21.3385851
+    },
+    {
+      "name": "Liptovská Teplička",
+      "description": "hobitin/Hobbiton",
+      "latitude": 48.9675582,
+      "longitude": 20.0896224
+    },
+    {
+      "name": "Pokryváč",
+      "description": "fotka s tabulou/town sign",
+      "latitude": 49.2018361,
+      "longitude": 19.3961883
+    },
+    {
+      "name": "U Holých",
+      "description": "Saty dole/clothes down",
+      "latitude": 49.39786,
+      "longitude": 18.76128
+    },
+    {
+      "name": "Mojtín",
+      "description": "fotka s tabulou/town sign",
+      "latitude": 48.9831843,
+      "longitude": 18.4023577
+    },
+    {
+      "name": "Kraľovanské Jazero",
+      "description": "kupanie",
+      "latitude": 49.1535608,
+      "longitude": 19.0985451
+    },
+    {
+      "name": "Čierna Lehota",
+      "description": "foto s tabulou/town sign",
+      "latitude": 48.8669879,
+      "longitude": 18.3333849
+    },
+    {
+      "name": "Babkov",
+      "description": "Ticianovci",
+      "latitude": 49.1579896,
+      "longitude": 18.6456646
+    },
+    {
+      "name": "Ostrov Orliaka morského",
+      "description": "fotka s turistickým rozcestníkom/photo with the tourist guidepost",
+      "latitude": 47.8745391,
+      "longitude": 17.4873786
+    },
+    {
+      "name": "Chvojnica",
+      "description": "fotka s tabulou/town sign",
+      "latitude": 48.7995075,
+      "longitude": 17.4104929
+    },
+    {
+      "name": "Slavosovsky tunel",
+      "description": "Vlakovy tunel prejazdny na cajgli. Fotka v(s) tuneli. // Train tunnel and an official bike path. Take a picture inside or in front of the tunnel",
+      "latitude": 48.7053588,
+      "longitude": 20.2642982
+    },
+    {
+      "name": "Vrchhora",
+      "description": "Zrúcanina renesančného kostola/ruins of a renaissance church",
+      "latitude": 48.5551171,
+      "longitude": 18.4101727
+    }
+  ],
+  "startCheckpointIdx": 0,
+  "finishCheckpointIdx": 1,
+  "maxDistance": 760000,
+  "maxAscend": 8000,
+  "noOfCheckpoints": 10
+}

@@ -1,0 +1,905 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Tour de Felvidék 2022</name>
+    <description>Mapa checkpointov</description>
+    <Style id="icon-1522-FF5252-normal">
+      <IconStyle>
+        <color>ff5252ff</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1522-FF5252-highlight">
+      <IconStyle>
+        <color>ff5252ff</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1522-FF5252">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1522-FF5252-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1522-FF5252-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1602-9C27B0-normal">
+      <IconStyle>
+        <color>ffb0279c</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1602-9C27B0-highlight">
+      <IconStyle>
+        <color>ffb0279c</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1602-9C27B0">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1602-9C27B0-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1602-9C27B0-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1603-FF5252-normal">
+      <IconStyle>
+        <color>ff5252ff</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1603-FF5252-highlight">
+      <IconStyle>
+        <color>ff5252ff</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1603-FF5252">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1603-FF5252-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1603-FF5252-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1899-0288D1-normal">
+      <IconStyle>
+        <color>ffd18802</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1899-0288D1-highlight">
+      <IconStyle>
+        <color>ffd18802</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1899-0288D1">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1899-0288D1-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1899-0288D1-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1899-0288D1-nodesc-normal">
+      <IconStyle>
+        <color>ffd18802</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-1899-0288D1-nodesc-highlight">
+      <IconStyle>
+        <color>ffd18802</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-1899-0288D1-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1899-0288D1-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1899-0288D1-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Folder>
+      <name>Vrstva bez názvu</name>
+      <Placemark>
+        <name>Start: Stakcin Tank</name>
+        <description>Zaciatok/Start 26.8 23:59</description>
+        <styleUrl>#icon-1522-FF5252</styleUrl>
+        <Point>
+          <coordinates>
+            22.2275205,49.0001666,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Finish: Mark Twain</name>
+        <description>Finish 29.8 12:00</description>
+        <styleUrl>#icon-1603-FF5252</styleUrl>
+        <Point>
+          <coordinates>
+            17.069665,48.145853,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Lubietova</name>
+        <description><![CDATA[Debnarska 241/20, modrá drevenica/blue cottage<br><br>(mozno) trochu jedla a spanie/something to eat and sleep as well]]></description>
+        <styleUrl>#icon-1602-9C27B0</styleUrl>
+        <Point>
+          <coordinates>
+            19.3632016,48.7452364,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Zelezno</name>
+        <description>Aj tu su bane. V horach. Fotka s nazvom obce alebo turistickym smerovnikom // Another mining place. In mountains. Foto with either the town side or the tourist marking</description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            19.3937208,48.954181,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Nizne Repase</name>
+        <description>kopec, ale zevraj je to tam fajn // hill, but supposedly a nice place. town sign</description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            20.6965624,49.0861278,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Hotel Sliezsky dom 
+</name>
+        <description>mozte si dat peciatku a ako premiu Gerlach // you can get a stamp if you want to and as a special bonus ascent the Gerlach mountain</description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            20.156587,49.156078,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Zádielska chata</name>
+        <description>je to v kanone // canonical place</description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            20.8117335,48.641312,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Priehyba</name>
+        <description>sedlo v Nizkych Tatrach, fotka s turistickym smerovnikom / Saddle in Nizke Tatry. Photo with the tourist marker</description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            19.9558998,48.906911,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Slanec</name>
+        <description><![CDATA[Dobre. Byva tam Spanielova prateta / alright. Jano Spaniel's great-aunt lives there]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            21.4782341,48.6362995,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Ptrukša</name>
+        <description><![CDATA[Je tu fajn krcma. Prechod na UA zatvaraju o 2100? / There's a nice pub in there. The crossing to Ukraine closes at 9PM?]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            22.1387494000001,48.4876298,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Stará Ľubovňa</name>
+        <description>Na stanici maju tvrde za 40 centov. / You can get shots at the train station for 40 cents each</description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            20.6898463,49.3010575,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Vysielač Veľká Javorina</name>
+        <description>Radio Tower Velka Javorina</description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            17.6752505,48.8576299,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Martinske hole</name>
+        <description>S vyhladom / with the view</description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            18.8148695,49.0917176,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Smrekovica</name>
+        <description>Konecne na hrebeni / ridge at last</description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            19.198859,48.9918883,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kohútka</name>
+        <description>Cucoriedkove buchty / blueberry buns</description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            18.230488,49.2951606,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Poľana</name>
+        <description>Horsky hotel/chata  // Mountain hotel/cabin</description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            19.4630883,48.6253897,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Velodróm Prešov</name>
+        <description>Spomienka / ah memories</description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            21.2313734,48.9861792,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Olejnikov, Majdan</name>
+        <description>hiking sign</description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            21.0899342,49.1939122,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Panna Maria snezna </name>
+        <description>Sedlo, pozor na autobusy // mountain saddle, watch out for the buses</description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            20.6496645,48.7021398,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Vršatec, hotel</name>
+        <description>Za hradom // hotel behind the castle</description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            18.1473468,49.0679785,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kráľova hoľa</name>
+        <description>stop s výhľadom // checkpoint with a view</description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            20.1392057,48.8826993,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Korova Kaplnka</name>
+        <description>chapel made out of bark (literally)</description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            19.5275015,48.5482804,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Blýskavica</name>
+        <description>zvonica na cintoríne // belltower at the cemetary</description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            19.29271,48.46545,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Čičermanské sedlo</name>
+        <description>rozcestnik // Čičermany mountain saddle. hiking post at the crossroads</description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            18.5274485,48.9316233,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Močiar</name>
+        <description>hlavne nezapadnut / be careful not to sink</description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            18.9459976,48.5406191,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Uhliská</name>
+        <description>kopanice / isolated village</description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            18.7527137,48.4025828,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Krokava</name>
+        <description>Horske stredisko // mountain tourist centre</description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            20.0265616,48.6297793,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Horáreň Sinec</name>
+        <description><![CDATA[fotka s horarnou, netreba ist na vrchol // gamekeeper's lodge Sinec, take a picture with it - you don't have to climb to the top]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            19.8949887,48.5600236,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Osušie</name>
+        <description>kostol / church</description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            19.54826,48.26797,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kríž v sedle Hluchánka</name>
+        <description>Cross at the Hluchanka saddle</description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            18.4774835,49.4113449,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Turul Monument</name>
+        <description>Big Bird</description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            18.4077524,47.5881279,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Rozhľadňa Rozbehy</name>
+        <description>Foto z vrcholu rozhladne/Top of the outlook tower</description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            17.3908826,48.5722804,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Ťatliakova chata</name>
+        <description><![CDATA[Lano netreba / you don't need a rope]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            19.7474457,49.2137073,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kompa Vlčany-Selice</name>
+        <description>Otazne otvaracie hodiny/Questionable opening hours</description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            17.9644519,48.0420788,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Zámok Pohansko</name>
+        <description>Biely dom strednej europy/White house of the Oestern Europa</description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            16.8950456,48.7278352,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Nagyirtáspuszta vlakova stanica</name>
+        <description>Fotka so stanicou/photo with the station</description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            18.8766733,47.9012788,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Cered</name>
+        <description>tabula s nazvom obce/town sign</description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            19.9640407,48.1461683,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Inovecká chata</name>
+        <description>moznost vyjst az na Inovec na rozhladnu/possibility to go on the top of Inovec to the viewtower</description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            18.0475915,48.7851922,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Svoradova jaskyna</name>
+        <description>Fotka s dierou/pic with hole</description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            18.0940979,48.3468816,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kastiel liecebne Predna Hora</name>
+        <description>moznost dlhodobeho ubytovania. Slava vyliecenym!</description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            20.1110507,48.7717424,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Obec Drienovo - obecný úrad</name>
+        <description>Fotka s obecnym uradom/with the municipal office</description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            19.061858,48.230415,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Vodárenská nádrž Turček</name>
+        <description>Kupko/swimming one</description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            18.9365747,48.7635298,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Skanzen Vychylovka</name>
+        <description>foto vlacik/photo with the train</description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            19.0955231,49.3819857,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Rio de Klin - Socha Ježiša Krista</name>
+        <description><![CDATA[Samba de Klin<br>fotka so spasitelom/photo with IHS]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            19.4834898,49.4534376,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Útulňa pod Ruskym sedlom</name>
+        <description>Power nap</description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            22.3328876,49.1439869,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Dukla</name>
+        <description>Fotka s pamatnikom/photo with the monument</description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            21.6999453,49.4146664,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Herliansky gejzír</name>
+        <description><![CDATA[cas erupcie/time of the eruption<br>https://www.herlany.sk/narodna-prirodna-pamiatka-herliansky-gejzir]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            21.4775368,48.8010306,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Morské oko Vihorlat</name>
+        <description>kupanie/swimming time</description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            22.1978245,48.9150648,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Beňatinské jazero</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            22.3424482,48.8132448,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Domček Deduška Večerníčka</name>
+        <description><![CDATA[Nová Sedlica, zaspievať znelku<br>https://www.youtube.com/watch?v=tw1qcoUEQoY]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            22.5130872,49.0425555,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Soľník</name>
+        <description>foto s nazvom obce/town sign</description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            21.7449282,49.2152394,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Zakopané</name>
+        <description>fotka s tabulou/town sign</description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            19.9495621,49.299181,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Chata PTTK na Polane Chochołowskej</name>
+        <description>vylet/trip</description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            19.7874255,49.2360599,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Chata na Kubínskej holi</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            19.2668535,49.2675744,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Mexikópuszta</name>
+        <description>sombrero</description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            16.840031,47.6921219,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Lázbérci víztározó gátőrháza</name>
+        <description>Fotka na mole/photo on mole</description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            20.4772384,48.205935,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Závadka</name>
+        <description>fotka s tabulou/town sign</description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            20.6188225,48.8664992,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Osturňa</name>
+        <description>fotka s tabulou/town sign</description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            20.2416561,49.3363024,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Háromhuta</name>
+        <description>fotka s tabulou/town sign</description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            21.4283347,48.3780662,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Ondavka</name>
+        <description>fotka s tabulou/town sign</description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            21.3385851,49.4362999,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Liptovská Teplička</name>
+        <description>hobitin/Hobbiton</description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            20.0896224,48.9675582,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Pokryváč</name>
+        <description>fotka s tabulou/town sign</description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            19.3961883,49.2018361,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>U Holých</name>
+        <description>Saty dole/clothes down</description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            18.76128,49.39786,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Mojtín</name>
+        <description>fotka s tabulou/town sign</description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            18.4023577,48.9831843,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kraľovanské Jazero</name>
+        <description>kupanie</description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            19.0985451,49.1535608,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Čierna Lehota</name>
+        <description>foto s tabulou/town sign</description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            18.3333849,48.8669879,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Babkov</name>
+        <description>Ticianovci</description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            18.6456646,49.1579896,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Ostrov Orliaka morského</name>
+        <description>fotka s turistickým rozcestníkom/photo with the tourist guidepost</description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            17.4873786,47.8745391,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Chvojnica</name>
+        <description>fotka s tabulou/town sign</description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            17.4104929,48.7995075,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Slavosovsky tunel</name>
+        <description>Vlakovy tunel prejazdny na cajgli. Fotka v(s) tuneli. // Train tunnel and an official bike path. Take a picture inside or in front of the tunnel</description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            20.2642982,48.7053588,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Vrchhora</name>
+        <description>Zrúcanina renesančného kostola/ruins of a renaissance church</description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            18.4101727,48.5551171,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>Vrstva bez názvu</name>
+    </Folder>
+    <Folder>
+      <name>Vrstva bez názvu</name>
+    </Folder>
+  </Document>
+</kml>
