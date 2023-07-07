@@ -51,7 +51,10 @@ start 1
 
 
 S - X - X - X - X - X - X - X - X - X - X - X - F
-1 x 4 x 4 x 4 x 4 x 4 x 4 x 4 x 4 x 4 x 4 x 4 x 1 
+1 x 6 x 6 x 6 x 6 x 6 x 1 
+
+
+6&
 
 
 
@@ -115,11 +118,6 @@ https://zbgisws.skgeodesy.sk/inspire_elevation_wcs/service.svc/get?service=WCS&v
 As an ultrabiker,
 I want the route to planned via suitable roads,
 So I don't end un on unapropriate road type.
-
-### MUST: Checkpoint matrix caching
-As an ultrabiker,
-I want matrix between checkpoints to be cached,
-so I can get available routes as soon as possible.
 
 ### MUST: User specific search 
 As an ultrabiker,

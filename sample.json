@@ -428,6 +428,6 @@
   "startCheckpointIdx": 0,
   "finishCheckpointIdx": 1,
   "maxDistance": 760000,
-  "maxAscend": 8000,
+  "maxAscend": 800000,
   "noOfCheckpoints": 10
 }

@@ -12,12 +12,15 @@ import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import cz.krvotok.tdf.adapter.out.persistance.h2.ListCheckpointConverter;
 import cz.krvotok.tdf.adapter.out.persistance.h2.ListRouteConverter;
 import cz.krvotok.tdf.domain.model.valueobject.Checkpoint;
+import cz.krvotok.tdf.domain.model.valueobject.Progress;
 import cz.krvotok.tdf.domain.model.valueobject.Route;
 
 @Serdeable
@@ -49,6 +52,8 @@ public final class Search {
     private int finishCheckpointIdx;
 
     @NotNull
+    @Max(value = 1000000, message = "Really? 1000km in 40 hours?")
+    @Min(value = 0, message = "Distance must be postive as you are.")
     @Column(name = "maxDistance", nullable = false)
     private int maxDistance;
 
@@ -57,12 +62,17 @@ public final class Search {
     private int maxAscend;
 
     @NotNull
+    @Max(value = 15, message = "There are some limitations...")
+    @Min(value = 5, message = "At least 5 CPs are required by this algorithm...")
     @Column(name = "noOfCheckpoints", nullable = false)
     private int noOfCheckpoints;
     
     @NotNull
     @Column(name = "status", nullable = false)
     private String status;
+
+    // @Column(name = "progress", columnDefinition="CLOB" nullable = false);
+    // private Progress progress;
 
     public Search() {
         this.setId(UUID.randomUUID());
@@ -171,7 +181,7 @@ public final class Search {
     }
 
     public String getStatus() {
-        return status;
+        return this.status;
     }
 
     public void setStatus(String status) {

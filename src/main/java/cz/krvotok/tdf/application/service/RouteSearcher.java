@@ -99,14 +99,14 @@ public class RouteSearcher {
         // Optimization: Do not continue if next checkpoint is finish, but we are not yet there.
         if (remainingRouteCheckpoints > 1 && nextCheckpointIdx == search.getFinishCheckpointIdx()) {
             LOG.trace("Skipping route because finish can be only last checkpoint.");
-            
+            // + remainingRouteCheckpoints ^ 6
             return;
         }
 
         // Optimizaion: Do not continue if last checkpoint but not finish.
         if (remainingRouteCheckpoints == 1 && nextCheckpointIdx != search.getFinishCheckpointIdx()) {
             LOG.trace("Skipping route because last checkpoint must be finish.");
-            
+            // + 1 skipped
             return;
         }
 
@@ -122,14 +122,14 @@ public class RouteSearcher {
         // Optimization: Do not continue if route exceeds max distance.
         if (distance > search.getMaxDistance()) {
             LOG.trace("Skipping route because max distance exceeded.");
-
+            // + 1 skipped
             return;
         }
 
         // Optimization: Do not continue if route exceeds max ascend.
         if (ascend > search.getMaxAscend()) {
             LOG.trace("Skipping route because max ascend exceeded.");
-            
+            // + 1 skipped
             return;
         }
 
@@ -143,7 +143,9 @@ public class RouteSearcher {
             if (routeAdded) {
                 this.searchRepository.persist(search);
             }
-            
+
+            // + 1 found
+
             return;
         }
 
@@ -162,12 +164,15 @@ public class RouteSearcher {
             if (Arrays.stream(routeCheckpointsIdxs).anyMatch(j -> j == z)) {
                 LOG.trace("Skipping route because checkpoint already in route.");
 
+                // + remaining CP ^ 6
                 continue;
             }
 
             // Skip checkpoint if not defined (for situation when there was less than six available checkpoints).
-            if (checkpointsMatrix.nearestIdxsMatrix[nextCheckpointIdx][i] == -1) {
+            if (nearestCheckpointIdxs[i] == -1) {
                 LOG.trace("Skipping route because not real checkpoint.");
+
+                // + remaining CP ^ 6
 
                 continue;
             }
@@ -175,7 +180,7 @@ public class RouteSearcher {
             int[] nextRouteCheckpointsIdxs = Arrays.copyOf(routeCheckpointsIdxs, routeCheckpointsIdxs.length);
 
             calculateRoute(
-                checkpointsMatrix.nearestIdxsMatrix[nextCheckpointIdx][i], // next
+                nearestCheckpointIdxs[i], // next
                 nextCheckpointIdx, // previous
                 nextRouteCheckpointsIdxs,
                 distance,
@@ -212,7 +217,7 @@ public class RouteSearcher {
                     continue;
                 }
 
-                // Optimization: Do not calculate if points more than too far from each other and they are not finish.
+                // Optimization: Do not calculate if points too far from each other and they are not finish.
                 if (j != finishCheckpointIdx && RouteSearcher.haversine(checkpoints.get(i).getLatitude(), checkpoints.get(i).getLongitude(), checkpoints.get(j).getLatitude(), checkpoints.get(j).getLongitude()) > 100) {
                     checkpointsMatrix.distanceMatrix[i][j] = -1;
                     checkpointsMatrix.ascendMatrix[i][j] = -1;
@@ -341,6 +346,4 @@ public class RouteSearcher {
 
         return newCheckpointIdxs;
     }
-
- 
 }
