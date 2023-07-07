@@ -20,10 +20,8 @@ import io.micronaut.http.annotation.Get;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.tags.Tag;
 
 @Controller("/searches")
-@Tag(name = "search")
 public class SearchController {
     private final CreateSearchHandler createSearchHandler;
     private final SearchRepository searchRepository;

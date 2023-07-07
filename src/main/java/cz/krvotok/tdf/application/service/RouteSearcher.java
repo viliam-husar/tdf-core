@@ -46,8 +46,7 @@ public class RouteSearcher {
         // Calculate checkpoints matrix.
         CheckpointsMatrix checkpointsMatrix = this.calculateCheckpointsMatrix(
             search.getCheckpoints(), 
-            search.getFinishCheckpointIdx(),
-            search.getMaxDistance() 
+            search.getFinishCheckpointIdx()
         );
 
         // Initialize first route.
@@ -191,7 +190,7 @@ public class RouteSearcher {
         }
     }
 
-    private CheckpointsMatrix calculateCheckpointsMatrix(List<Checkpoint> checkpoints, int finishCheckpointIdx, int maxDistance) {
+    private CheckpointsMatrix calculateCheckpointsMatrix(List<Checkpoint> checkpoints, int finishCheckpointIdx) {
         CheckpointsMatrix checkpointsMatrix = new CheckpointsMatrix();
         checkpointsMatrix.distanceMatrix = new int[checkpoints.size()][checkpoints.size()];
         checkpointsMatrix.ascendMatrix = new int[checkpoints.size()][checkpoints.size()];

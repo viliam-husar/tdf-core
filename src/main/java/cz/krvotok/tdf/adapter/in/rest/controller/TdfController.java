@@ -8,10 +8,8 @@ import io.micronaut.http.annotation.Get;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.tags.Tag;
 
 @Controller("/tdfs")
-@Tag(name = "tdf")
 public class TdfController {
     private final TourDeFelvidekRepository tdfRepository;
 

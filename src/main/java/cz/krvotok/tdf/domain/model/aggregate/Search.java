@@ -20,7 +20,6 @@ import javax.validation.constraints.NotNull;
 import cz.krvotok.tdf.adapter.out.persistance.h2.ListCheckpointConverter;
 import cz.krvotok.tdf.adapter.out.persistance.h2.ListRouteConverter;
 import cz.krvotok.tdf.domain.model.valueobject.Checkpoint;
-import cz.krvotok.tdf.domain.model.valueobject.Progress;
 import cz.krvotok.tdf.domain.model.valueobject.Route;
 
 @Serdeable
