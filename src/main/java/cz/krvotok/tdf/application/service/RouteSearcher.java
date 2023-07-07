@@ -2,13 +2,7 @@ package cz.krvotok.tdf.application.service;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Locale;
 import java.util.UUID;
-
-import com.graphhopper.GHRequest;
-import com.graphhopper.GHResponse;
-import com.graphhopper.GraphHopper;
-import com.graphhopper.ResponsePath;
 
 import cz.krvotok.tdf.domain.model.valueobject.Checkpoint;
 import cz.krvotok.tdf.domain.model.aggregate.Search;
@@ -32,13 +26,13 @@ public class RouteSearcher {
         public int[][] nearestIdxsMatrix;
     }
 
-    private final GraphHopper hopper;
+    private final PathMetadataFinder pathMetadataFinder;
     private final SearchRepository searchRepository;
     private int stat;
 
-    public RouteSearcher(SearchRepository searchRepository, GraphHopper hopper) {
+    public RouteSearcher(SearchRepository searchRepository, PathMetadataFinder pathMetadataFinder) {
         this.searchRepository = searchRepository;
-        this.hopper = hopper;
+        this.pathMetadataFinder = pathMetadataFinder;
     }
 
     @Async
@@ -237,20 +231,16 @@ public class RouteSearcher {
                     ascend = checkpointsMatrix.descendMatrix[j][i];
                     descend = checkpointsMatrix.ascendMatrix[j][i];
                 } else {
-                
-                    GHRequest req = new GHRequest(checkpoints.get(i).getLatitude(), checkpoints.get(i).getLongitude(), checkpoints.get(j).getLatitude(), checkpoints.get(j).getLongitude())
-                        .setProfile("bike")
-                        .setLocale(Locale.US);
+                    int[] path = this.pathMetadataFinder.findPathMetadata(
+                        checkpoints.get(i).getLatitude(),
+                        checkpoints.get(i).getLongitude(),
+                        checkpoints.get(j).getLatitude(),
+                        checkpoints.get(j).getLongitude()
+                    );
 
-                    GHResponse rsp = this.hopper.route(req);
-
-                    if (rsp.hasErrors())
-                        throw new RuntimeException(rsp.getErrors().toString());
-
-                    ResponsePath rspPath = rsp.getBest();
-                    distance = (int) rspPath.getDistance();
-                    ascend = (int) rspPath.getAscend();
-                    descend = (int) rspPath.getDescend();
+                    distance = (int) path[0];
+                    ascend = (int) path[1];
+                    descend = (int) path[2];
                 }
 
                 checkpointsMatrix.distanceMatrix[i][j] = distance;
@@ -318,10 +308,9 @@ public class RouteSearcher {
 
         }
         
-        hopper.close();
-
         return checkpointsMatrix;
     }   
+
 
     static public double haversine(double lat1, double lon1, double lat2, double lon2) {
         double dLat = Math.toRadians(lat2 - lat1);

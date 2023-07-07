@@ -80,7 +80,6 @@ public class TourDeFelvidekRepositoryImpl implements TourDeFelvidekRepository {
                 checkpoints.add(checkpoint);
             }
         } catch (IOException | NumberFormatException | ParserConfigurationException | DOMException | SAXException e) {
-            e.printStackTrace();            
             return Optional.ofNullable(null);
         }
 

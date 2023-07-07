@@ -133,7 +133,7 @@ public final class Search {
         // If the list is full and the new route is easier than the hardest route, add the new route.
         if (routes.size() < 50 || route.getDistance() < routes.get(routes.size() - 1).getDistance()) {
             routes.add(route);
-            routes.sort(Comparator.comparingDouble(Route::getAscendRatio));
+            routes.sort(Comparator.comparingInt(Route::getDistance));
 
             // If there are more than 20 routes, remove the most difficult
             if (routes.size() > 50) {
