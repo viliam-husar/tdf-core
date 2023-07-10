@@ -27,7 +27,7 @@ import cz.krvotok.tdf.domain.model.valueobject.Route;
 @Table(name="search")
 public final class Search {
     public static final String STATUS_NEW = "new";
-    public static final String STATUS_CALCULATING = "calculating";
+    public static final String STATUS_IN_PROGRESS = "in_progress";
     public static final String STATUS_READY = "ready";
 
     @Id
@@ -73,10 +73,7 @@ public final class Search {
     // @Column(name = "progress", columnDefinition="CLOB" nullable = false);
     // private Progress progress;
 
-    public Search() {
-        this.setId(UUID.randomUUID());
-        this.setStatus(Search.STATUS_NEW);
-    }
+    public Search() {}
 
     public Search(
         List<Checkpoint> checkpoints,
@@ -86,14 +83,14 @@ public final class Search {
         int maxAscend,
         int noOfCheckpoints
     ) {
-        this.setId(UUID.randomUUID());
-        this.setStatus(Search.STATUS_NEW);
-        this.setCheckpoints(checkpoints);
-        this.setStartCheckpointIdx(startCheckpointIdx);
-        this.setFinishCheckpointIdx(finishCheckpointIdx);
-        this.setMaxDistance(maxDistance);
-        this.setMaxAscend(maxAscend);
-        this.setNoOfCheckpoints(noOfCheckpoints);
+        this.id = UUID.randomUUID();
+        this.status = Search.STATUS_NEW;
+        this.checkpoints = checkpoints;
+        this.startCheckpointIdx = startCheckpointIdx;
+        this.finishCheckpointIdx = finishCheckpointIdx;
+        this.maxDistance = maxDistance;
+        this.maxAscend = maxAscend;
+        this.noOfCheckpoints = noOfCheckpoints;
         this.routes = new ArrayList<>();
     }
 
@@ -101,40 +98,20 @@ public final class Search {
         return this.id;
     }
 
-    public void setId(UUID id) {
-        this.id = id;
-    }
-
     public List<Checkpoint> getCheckpoints() {
         return this.checkpoints;
-    }
-
-    public void setCheckpoints(List<Checkpoint> checkpoints) {
-        this.checkpoints = checkpoints;
     }
 
     public int getStartCheckpointIdx() {
         return this.startCheckpointIdx;
     }
 
-    public void setStartCheckpointIdx(int startCheckpointIdx) {
-        this.startCheckpointIdx = startCheckpointIdx;
-    }
-
     public int getFinishCheckpointIdx() {
         return this.finishCheckpointIdx;
     }
 
-    public void setFinishCheckpointIdx(int finishCheckpointIdx) {
-        this.finishCheckpointIdx = finishCheckpointIdx;
-    }
-
     public List<Route> getRoutes() {
         return this.routes;
-    }
-
-    public void setRoutes(List<Route> routes) {
-        this.routes = routes;
     }
 
     public boolean addRoute(Route route) {
@@ -159,24 +136,12 @@ public final class Search {
         return this.maxDistance;
     }
 
-    public void setMaxDistance(int maxDistance) {
-        this.maxDistance = maxDistance;
-    }
-
     public int getMaxAscend() {
         return this.maxAscend;
     }
 
-    public void setMaxAscend(int maxAscend) {
-        this.maxAscend = maxAscend;
-    }
-
     public int getNoOfCheckpoints() {
         return this.noOfCheckpoints;
-    }
-
-    public void setNoOfCheckpoints(int noOfCheckpoints) {
-        this.noOfCheckpoints = noOfCheckpoints;
     }
 
     public String getStatus() {

@@ -5,23 +5,17 @@ import java.util.UUID;
 import cz.krvotok.tdf.domain.model.aggregate.Search;
 
 import cz.krvotok.tdf.application.command.CreateSearchCommand;
-import cz.krvotok.tdf.application.service.RouteSearcher;
+import cz.krvotok.tdf.application.service.SearchService;
 import cz.krvotok.tdf.domain.repository.SearchRepository;
 import jakarta.inject.Singleton;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-
 @Singleton
 public class CreateSearchHandler {
-    private static final Logger LOG = LoggerFactory.getLogger(RouteSearcher.class);
-
     private final SearchRepository repository;
-    private final RouteSearcher routeSearcher;
+    private final SearchService searchService;
 
-    public CreateSearchHandler(SearchRepository repository, RouteSearcher routeSearcher) {
-        this.routeSearcher = routeSearcher;
+    public CreateSearchHandler(SearchRepository repository, SearchService searchService) {
+        this.searchService = searchService;
         this.repository = repository;
     }
 
@@ -35,11 +29,9 @@ public class CreateSearchHandler {
             command.getNoOfCheckpoints()
         );
 
-        LOG.info("Persisting ...");
         UUID searchId = this.repository.persist(search);
-        LOG.info("Persisted ...");
 
-       this.routeSearcher.searchForRoutes(searchId);
+        this.searchService.completeSearch(searchId);
 
         return searchId;
     }

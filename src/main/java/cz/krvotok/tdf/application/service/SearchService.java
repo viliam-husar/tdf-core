@@ -16,8 +16,8 @@ import org.slf4j.LoggerFactory;
 
 
 @Singleton
-public class RouteSearcher {
-    private static final Logger LOG = LoggerFactory.getLogger(RouteSearcher.class);
+public class SearchService {
+    private static final Logger LOG = LoggerFactory.getLogger(SearchService.class);
 
     class CheckpointsMatrix {
         public int[][] distanceMatrix;
@@ -26,23 +26,27 @@ public class RouteSearcher {
         public int[][] nearestIdxsMatrix;
     }
 
-    private final PathMetadataFinder pathMetadataFinder;
+    private final NavigationService navigationService;
     private final SearchRepository searchRepository;
     private int stat;
 
-    public RouteSearcher(SearchRepository searchRepository, PathMetadataFinder pathMetadataFinder) {
+    public SearchService(SearchRepository searchRepository, NavigationService navigationService) {
         this.searchRepository = searchRepository;
-        this.pathMetadataFinder = pathMetadataFinder;
+        this.navigationService = navigationService;
     }
 
     @Async
-    public void searchForRoutes(UUID searchId) {
+    public void completeSearch(UUID searchId) {
         Search search = this.searchRepository.findById(searchId).orElse(null);
-        
-        // Update status.
-        search.setStatus(Search.STATUS_CALCULATING);
+        search.setStatus(Search.STATUS_IN_PROGRESS);
+
+        this.addRoutes(search);
+
+        search.setStatus(Search.STATUS_READY);
         this.searchRepository.persist(search);
-        
+    }
+
+    private void addRoutes(Search search) {        
         // Calculate checkpoints matrix.
         CheckpointsMatrix checkpointsMatrix = this.calculateCheckpointsMatrix(
             search.getCheckpoints(), 
@@ -63,10 +67,6 @@ public class RouteSearcher {
             search, 
             checkpointsMatrix
         );
-
-        // Update status.
-        search.setStatus(Search.STATUS_READY);
-        this.searchRepository.persist(search);
 
         System.out.println(this.stat);
     }
@@ -95,11 +95,30 @@ public class RouteSearcher {
             }
         }
 
-        // Optimization: Do not continue if next checkpoint is finish, but we are not yet there.
-        if (remainingRouteCheckpoints > 1 && nextCheckpointIdx == search.getFinishCheckpointIdx()) {
-            LOG.trace("Skipping route because finish can be only last checkpoint.");
-            // + remainingRouteCheckpoints ^ 6
-            return;
+        // Optimization: Do not continue if not last checkpoint and ... 
+        if (remainingRouteCheckpoints > 1) {
+            // ... finish checkpoint is next.
+            if (nextCheckpointIdx == search.getFinishCheckpointIdx()) {
+                LOG.trace("Skipping route because finish can be only last checkpoint.");
+                // + remainingRouteCheckpoints ^ 6
+                return;
+            }
+
+            // ... distance to finish already exceed max distance.
+            int distanceToFinish = checkpointsMatrix.distanceMatrix[currentRouteCheckpointIdx][search.getFinishCheckpointIdx()];
+            if ((distance + distanceToFinish) > search.getMaxDistance()) {
+                LOG.trace("Skipping route because distance to finish already exceed max distance.");
+                // + remainingRouteCheckpoints ^ 6
+                return;
+            }
+
+            // ... ascend to finish already exceed max ascend.
+            int ascendToFinish = checkpointsMatrix.ascendMatrix[currentRouteCheckpointIdx][search.getFinishCheckpointIdx()];
+            if ((ascend + ascendToFinish) > search.getMaxAscend()) {
+                LOG.trace("Skipping route because distance to finish already exceed max distance.");
+                // + remainingRouteCheckpoints ^ 6
+                return;
+            }            
         }
 
         // Optimizaion: Do not continue if last checkpoint but not finish.
@@ -154,7 +173,7 @@ public class RouteSearcher {
 
         // Add finish CP (if not there) if the next CP will be last CP of the route.
         if (remainingRouteCheckpoints == 2) {
-            nearestCheckpointIdxs = RouteSearcher.addCheckpointIdx(nearestCheckpointIdxs, search.getFinishCheckpointIdx());
+            nearestCheckpointIdxs = SearchService.addCheckpointIdx(nearestCheckpointIdxs, search.getFinishCheckpointIdx());
         }
 
         for (int i = 0; i < nearestCheckpointIdxs.length; i++) {
@@ -217,7 +236,7 @@ public class RouteSearcher {
                 }
 
                 // Optimization: Do not calculate if points too far from each other and they are not finish.
-                if (j != finishCheckpointIdx && RouteSearcher.haversine(checkpoints.get(i).getLatitude(), checkpoints.get(i).getLongitude(), checkpoints.get(j).getLatitude(), checkpoints.get(j).getLongitude()) > 100) {
+                if (j != finishCheckpointIdx && SearchService.haversine(checkpoints.get(i).getLatitude(), checkpoints.get(i).getLongitude(), checkpoints.get(j).getLatitude(), checkpoints.get(j).getLongitude()) > 100) {
                     checkpointsMatrix.distanceMatrix[i][j] = -1;
                     checkpointsMatrix.ascendMatrix[i][j] = -1;
                     checkpointsMatrix.descendMatrix[i][j] = -1;
@@ -235,7 +254,7 @@ public class RouteSearcher {
                     ascend = checkpointsMatrix.descendMatrix[j][i];
                     descend = checkpointsMatrix.ascendMatrix[j][i];
                 } else {
-                    int[] path = this.pathMetadataFinder.findPathMetadata(
+                    int[] path = this.navigationService.findPathMetadata(
                         checkpoints.get(i).getLatitude(),
                         checkpoints.get(i).getLongitude(),
                         checkpoints.get(j).getLatitude(),

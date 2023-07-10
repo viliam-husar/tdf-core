@@ -7,16 +7,16 @@ import com.graphhopper.ResponsePath;
 
 import java.util.Locale;
 
-import cz.krvotok.tdf.application.service.PathMetadataFinder;
+import cz.krvotok.tdf.application.service.NavigationService;
 import io.micronaut.cache.annotation.Cacheable;
 import jakarta.inject.Singleton;
 
 @Singleton
-public class GraphopperPathMetadataFinder implements PathMetadataFinder {
+public class GraphHopperNavigationService implements NavigationService {
 
     final private GraphHopper hopper;
     
-    public GraphopperPathMetadataFinder(GraphHopper hopper) {
+    public GraphHopperNavigationService(GraphHopper hopper) {
         this.hopper = hopper;
     }
 
