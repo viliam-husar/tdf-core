@@ -23,12 +23,17 @@ import org.xml.sax.SAXException;
 import cz.krvotok.tdf.domain.model.aggregate.TourDeFelvidek;
 import cz.krvotok.tdf.domain.model.valueobject.Checkpoint;
 import cz.krvotok.tdf.domain.repository.TourDeFelvidekRepository;
+import cz.krvotok.tdf.application.service.NavigationService;
 import jakarta.inject.Singleton;
 
 @Singleton
 public class TourDeFelvidekRepositoryImpl implements TourDeFelvidekRepository {
 
-    public TourDeFelvidekRepositoryImpl() {}
+    private final NavigationService navigationService;
+
+    public TourDeFelvidekRepositoryImpl(NavigationService navigationService) {
+        this.navigationService = navigationService;
+    }
 
     @Override
     public Optional<TourDeFelvidek> findByYear(int year) {
@@ -66,6 +71,7 @@ public class TourDeFelvidekRepositoryImpl implements TourDeFelvidekRepository {
                 Checkpoint checkpoint = new Checkpoint();
                 checkpoint.setName(name);
                 checkpoint.setDescription(description);
+                checkpoint.setAltitude(this.navigationService.getPointAltitude(Double.parseDouble(latitude), Double.parseDouble(longitude)));
                 checkpoint.setLatitude(Double.parseDouble(latitude));
                 checkpoint.setLongitude(Double.parseDouble(longitude));
 
@@ -74,7 +80,7 @@ public class TourDeFelvidekRepositoryImpl implements TourDeFelvidekRepository {
                 }
 
                 if (description.contains("Finish") || description.contains("FINISH")) {
-                    tdf.setFinishCheckopintIdx(i);
+                    tdf.setFinishCheckpointIdx(i);
                 }
 
                 checkpoints.add(checkpoint);

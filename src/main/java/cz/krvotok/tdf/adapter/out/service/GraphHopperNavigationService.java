@@ -7,6 +7,8 @@ import com.graphhopper.ResponsePath;
 
 import java.util.Locale;
 
+import com.graphhopper.util.PointList;
+
 import cz.krvotok.tdf.application.service.NavigationService;
 import io.micronaut.cache.annotation.Cacheable;
 import jakarta.inject.Singleton;
@@ -22,7 +24,7 @@ public class GraphHopperNavigationService implements NavigationService {
 
     @Override
     @Cacheable(cacheNames = "paths", parameters = {"fromLat", "fromLon", "toLat", "toLon"})
-    public int[] findPathMetadata(double fromLat, double fromLon, double toLat, double toLon) {
+    public int[] getPathMetadata(double fromLat, double fromLon, double toLat, double toLon) {
 
         int[] path = new int[3];
 
@@ -43,4 +45,30 @@ public class GraphHopperNavigationService implements NavigationService {
 
         return path;
     }
+
+    @Override
+    @Cacheable(cacheNames = "altitudes", parameters = {"lat", "lon"})
+    public int getPointAltitude(double lat, double lon) {
+        GHRequest req = new GHRequest(lat, lon, lat, lon)
+            .setProfile("bike")
+            .setLocale(Locale.US);
+
+        GHResponse rsp = hopper.route(req);
+
+        if(rsp.hasErrors()) {
+            return -1;
+            // handle errors
+        } else {
+            PointList pointList = rsp.getBest().getPoints();
+            
+            return (int) pointList.getEle(0);
+        }
+    }
+
+    // @Override
+    // @Cacheable(cacheNames = "paths", parameters = {"fromLat", "fromLon", "toLat", "toLon"})
+    // public Point[] getPathPoints(double fromLat, double fromLon, double toLat, double toLon) {
+
+    //     return new Object();
+    // }
 }

@@ -38,7 +38,9 @@ public class SearchService {
     @Async
     public void completeSearch(UUID searchId) {
         Search search = this.searchRepository.findById(searchId).orElse(null);
+
         search.setStatus(Search.STATUS_IN_PROGRESS);
+        this.searchRepository.persist(search);
 
         this.addRoutes(search);
 
@@ -81,6 +83,11 @@ public class SearchService {
         CheckpointsMatrix checkpointsMatrix
     ) {
         this.stat = this.stat + 1;
+
+        if (this.stat % 200 == 0) {
+            this.searchRepository.persist(search);
+        }
+        
         System.out.println(Arrays.toString(routeCheckpointsIdxs));
         int currentRouteCheckpointIdx = -1;
         int remainingRouteCheckpoints = -1;
@@ -99,32 +106,36 @@ public class SearchService {
         if (remainingRouteCheckpoints > 1) {
             // ... finish checkpoint is next.
             if (nextCheckpointIdx == search.getFinishCheckpointIdx()) {
-                LOG.trace("Skipping route because finish can be only last checkpoint.");
-                // + remainingRouteCheckpoints ^ 6
+                LOG.info("Skipping route because finish can be only last checkpoint.");
+                search.increaseStats(Search.STATS_SKIPPED, (long) Math.pow(6, remainingRouteCheckpoints - 2));
+                
                 return;
             }
 
             // ... distance to finish already exceed max distance.
             int distanceToFinish = checkpointsMatrix.distanceMatrix[currentRouteCheckpointIdx][search.getFinishCheckpointIdx()];
             if ((distance + distanceToFinish) > search.getMaxDistance()) {
-                LOG.trace("Skipping route because distance to finish already exceed max distance.");
-                // + remainingRouteCheckpoints ^ 6
+                LOG.info("Skipping route because distance to finish already exceed max distance.");
+                search.increaseStats(Search.STATS_SKIPPED, (long) Math.pow(6, remainingRouteCheckpoints - 2));
+
                 return;
             }
 
             // ... ascend to finish already exceed max ascend.
             int ascendToFinish = checkpointsMatrix.ascendMatrix[currentRouteCheckpointIdx][search.getFinishCheckpointIdx()];
             if ((ascend + ascendToFinish) > search.getMaxAscend()) {
-                LOG.trace("Skipping route because distance to finish already exceed max distance.");
-                // + remainingRouteCheckpoints ^ 6
+                LOG.info("Skipping route because distance to finish already exceed max distance.");
+                search.increaseStats(Search.STATS_SKIPPED, (long) Math.pow(6, remainingRouteCheckpoints - 2));
+
                 return;
             }            
         }
 
         // Optimizaion: Do not continue if last checkpoint but not finish.
         if (remainingRouteCheckpoints == 1 && nextCheckpointIdx != search.getFinishCheckpointIdx()) {
-            LOG.trace("Skipping route because last checkpoint must be finish.");
-            // + 1 skipped
+            LOG.info("Skipping route because last checkpoint must be finish.");
+            search.increaseStats(Search.STATS_SKIPPED, 1);
+
             return;
         }
 
@@ -139,30 +150,32 @@ public class SearchService {
 
         // Optimization: Do not continue if route exceeds max distance.
         if (distance > search.getMaxDistance()) {
-            LOG.trace("Skipping route because max distance exceeded.");
-            // + 1 skipped
+            LOG.info("Skipping route because max distance exceeded.");
+            search.increaseStats(Search.STATS_SKIPPED, 1);
+
             return;
         }
 
         // Optimization: Do not continue if route exceeds max ascend.
         if (ascend > search.getMaxAscend()) {
-            LOG.trace("Skipping route because max ascend exceeded.");
-            // + 1 skipped
+            LOG.info("Skipping route because max ascend exceeded.");
+            search.increaseStats(Search.STATS_SKIPPED, 1);
+
             return;
         }
 
         // Add route if last checkpoint.
         if (remainingRouteCheckpoints == 1) {
             LOG.info("Found route: " + Arrays.toString(routeCheckpointsIdxs) + " | Distance:" + distance + " | Ascend:" + ascend);
+            search.increaseStats(Search.STATS_FOUND, 1);
             
             boolean routeAdded = search.addRoute(new Route(routeCheckpointsIdxs, distance, ascend));
             
             // Persist search only if new routa was really added to search.
             if (routeAdded) {
+                
                 this.searchRepository.persist(search);
             }
-
-            // + 1 found
 
             return;
         }
@@ -180,17 +193,15 @@ public class SearchService {
             // Optimization: Skip checkpoints already in the route.
             int z = nearestCheckpointIdxs[i];
             if (Arrays.stream(routeCheckpointsIdxs).anyMatch(j -> j == z)) {
-                LOG.trace("Skipping route because checkpoint already in route.");
-
-                // + remaining CP ^ 6
+                LOG.info("Skipping route because checkpoint already in route.");
+                search.increaseStats(Search.STATS_SKIPPED, (long) Math.pow(6, remainingRouteCheckpoints - 2));
                 continue;
             }
 
             // Skip checkpoint if not defined (for situation when there was less than six available checkpoints).
             if (nearestCheckpointIdxs[i] == -1) {
-                LOG.trace("Skipping route because not real checkpoint.");
-
-                // + remaining CP ^ 6
+                LOG.info("Skipping route because not real checkpoint.");
+                search.increaseStats(Search.STATS_SKIPPED, (long) Math.pow(6, remainingRouteCheckpoints - 2));
 
                 continue;
             }
@@ -254,7 +265,7 @@ public class SearchService {
                     ascend = checkpointsMatrix.descendMatrix[j][i];
                     descend = checkpointsMatrix.ascendMatrix[j][i];
                 } else {
-                    int[] path = this.navigationService.findPathMetadata(
+                    int[] path = this.navigationService.getPathMetadata(
                         checkpoints.get(i).getLatitude(),
                         checkpoints.get(i).getLongitude(),
                         checkpoints.get(j).getLatitude(),

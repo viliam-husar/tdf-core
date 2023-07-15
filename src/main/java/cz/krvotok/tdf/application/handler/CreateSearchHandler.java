@@ -31,6 +31,7 @@ public class CreateSearchHandler {
 
         UUID searchId = this.repository.persist(search);
 
+        System.out.println(searchId.toString());
         this.searchService.completeSearch(searchId);
 
         return searchId;

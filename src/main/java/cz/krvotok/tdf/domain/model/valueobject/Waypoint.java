@@ -4,11 +4,9 @@ import javax.persistence.Transient;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-public abstract class Waypoint {
+public abstract class Waypoint extends Point {
     private String name;
     private String description;
-    private double latitude;
-    private double longitude;
 
     public String getName() {
         return name;
@@ -24,22 +22,6 @@ public abstract class Waypoint {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public double getLatitude() {
-        return latitude;
-    }
-
-    public void setLatitude(double latitude) {
-        this.latitude = latitude;
-    }
-
-    public double getLongitude() {
-        return longitude;
-    }
-
-    public void setLongitude(double longitude) {
-        this.longitude = longitude;
     }
 
     @Transient

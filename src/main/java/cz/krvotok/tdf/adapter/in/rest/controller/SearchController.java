@@ -46,12 +46,6 @@ public class SearchController {
     public HttpResponse<Search> createSearch(@Body @Valid CreateSearchCommand command) {
         UUID searchId = this.createSearchHandler.handle(command);
 
-        return HttpResponse
-                .accepted(location(searchId));
+        return HttpResponse.created(URI.create("/searches/" + searchId.toString()));
     }
-
-    private URI location(UUID id) {
-        return URI.create("/searches/" + id.toString());
-    }
-
 }

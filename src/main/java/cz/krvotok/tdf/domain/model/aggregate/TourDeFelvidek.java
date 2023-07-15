@@ -9,7 +9,7 @@ import io.micronaut.serde.annotation.Serdeable;
 public class TourDeFelvidek {
     private List<Checkpoint> checkpoints;
     private int startCheckpointIdx;
-    private int finishCheckopintIdx;
+    private int finishCheckpointIdx;
     private int year;
 
     public List<Checkpoint> getCheckpoints() {
@@ -28,12 +28,12 @@ public class TourDeFelvidek {
         this.startCheckpointIdx = startCheckpointIdx;
     }
 
-    public int getFinishCheckopintIdx() {
-        return this.finishCheckopintIdx;
+    public int getFinishCheckpointIdx() {
+        return this.finishCheckpointIdx;
     }
 
-    public void setFinishCheckopintIdx(int finishCheckopintIdx) {
-        this.finishCheckopintIdx = finishCheckopintIdx;
+    public void setFinishCheckpointIdx(int finishCheckpointIdx) {
+        this.finishCheckpointIdx = finishCheckpointIdx;
     }
 
     public int getYear() {

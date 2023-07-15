@@ -17,6 +17,7 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
+import cz.krvotok.tdf.adapter.out.persistance.h2.LongArrayConverter;
 import cz.krvotok.tdf.adapter.out.persistance.h2.ListCheckpointConverter;
 import cz.krvotok.tdf.adapter.out.persistance.h2.ListRouteConverter;
 import cz.krvotok.tdf.domain.model.valueobject.Checkpoint;
@@ -29,6 +30,11 @@ public final class Search {
     public static final String STATUS_NEW = "new";
     public static final String STATUS_IN_PROGRESS = "in_progress";
     public static final String STATUS_READY = "ready";
+
+    public static final int STATS_ALL = 0;
+    public static final int STATS_SKIPPED = 1;
+    public static final int STATS_FOUND = 2;
+
 
     @Id
     private UUID id;
@@ -66,6 +72,11 @@ public final class Search {
     @Column(name = "noOfCheckpoints", nullable = false)
     private int noOfCheckpoints;
     
+    @NotEmpty
+    @Column(name = "stats", nullable = false, columnDefinition="CLOB")
+    @Convert(converter = LongArrayConverter.class)
+    private long[] stats;
+
     @NotNull
     @Column(name = "status", nullable = false)
     private String status;
@@ -91,6 +102,11 @@ public final class Search {
         this.maxDistance = maxDistance;
         this.maxAscend = maxAscend;
         this.noOfCheckpoints = noOfCheckpoints;
+        // 0 - all possible roites
+        // 1 - skipped routes
+        // 2 - found routes
+        this.stats = new long[3];
+        this.stats[0] = (long) Math.pow(6, noOfCheckpoints);
         this.routes = new ArrayList<>();
     }
 
@@ -142,6 +158,14 @@ public final class Search {
 
     public int getNoOfCheckpoints() {
         return this.noOfCheckpoints;
+    }
+
+    public long[] getStats() {
+        return this.stats;
+    }
+
+    public void increaseStats(int statType, long add) {
+        this.stats[statType] = this.stats[statType] + add;
     }
 
     public String getStatus() {
